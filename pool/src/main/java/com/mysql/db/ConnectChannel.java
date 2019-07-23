@@ -24,7 +24,7 @@ public class ConnectChannel {
     public void query(String sql) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
-        logger.info("SQL={}, result={}", sql, resultSet.wasNull());
+        logger.info("result={}", resultSet.wasNull());
         resultSet.close();
         statement.close();
     }

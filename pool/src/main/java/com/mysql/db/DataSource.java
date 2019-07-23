@@ -2,7 +2,7 @@ package com.mysql.db;
 
 public class DataSource {
     //    private String driver = "com.mysql.jdbc.Driver";
-    private String driver = "com.mysql.cj.jdbc.Driver";
+    private String driver = "com.mysql.jdbc.Driver";
     private String url = "jdbc:mysql://10.40.10.223:3306/kxservicewechat?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&allowMultiQueries=true";
     private String user = "mysql";
     private String password = "mysql";
