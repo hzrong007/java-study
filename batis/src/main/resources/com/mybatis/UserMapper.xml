@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.dao.UserDaoService">
+
+    <select id="queryUsers" resultMap="results" parameterType="com.mybatis.entity.User">
+		select * from user
+	</select>
+
+    <resultMap type="com.mybatis.entity.User" id="results">
+        <id column="id" property="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+</mapper>
