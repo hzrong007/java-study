@@ -1,4 +1,4 @@
-package com.rw.netty.service;
+package com.rw.netty.service.netty;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -18,7 +18,7 @@ public class MyClient {
 
     public static void main(String[] args) throws InterruptedException {
         String host = "127.0.0.1";
-        int port = 9090;
+        int port = 9095;
         if (args.length == 2) {
             host = args[0];
             port = Integer.parseInt(args[1]);

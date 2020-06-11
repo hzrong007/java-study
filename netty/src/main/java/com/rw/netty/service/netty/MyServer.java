@@ -1,4 +1,4 @@
-package com.rw.netty.service;
+package com.rw.netty.service.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -25,10 +25,11 @@ public class MyServer {
     }
 
     private void start() throws InterruptedException {
-        NioEventLoopGroup eventExecutors = new NioEventLoopGroup();
+        NioEventLoopGroup mainGroup = new NioEventLoopGroup(1);
+        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap server = new ServerBootstrap();
-            server.group(eventExecutors);
+            server.group(mainGroup,workerGroup);
             server.channel(NioServerSocketChannel.class);
             server.localAddress(new InetSocketAddress(port));
             // handler()和childHandler()的主要区别是，handler()是发生在初始化的时候，childHandler()是发生在客户端连接之后
@@ -42,7 +43,8 @@ public class MyServer {
             ChannelFuture sync = server.bind().sync();
             sync.channel().closeFuture().sync();
         } finally {
-            eventExecutors.shutdownGracefully().sync();
+            mainGroup.shutdownGracefully().sync();
+            workerGroup.shutdownGracefully().sync();
         }
     }
 }

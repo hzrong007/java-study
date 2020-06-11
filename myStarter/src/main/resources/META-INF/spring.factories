@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.rw.spi.App
+
+com.rw.spi.PersonService=\
+  com.rw.spi.service.impl.DevelopPersonServiceImpl
